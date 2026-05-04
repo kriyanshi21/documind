@@ -1,0 +1,13 @@
+# Secrets
+.env
+
+# Database (Don't push local DB)
+backend/chroma_db/
+
+# Python
+__pycache__/
+venv/
+*.pyc
+
+# Mac
+.DS_Store
