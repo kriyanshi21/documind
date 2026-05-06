@@ -11,7 +11,7 @@ services:
       - key: GEMINI_API_KEY
         sync: false # Set this in the Render Dashboard after creation
       - key: CORS_ORIGINS
-        value: "https://documind-frontend.onrender.com" # Placeholder, update this if your frontend URL changes
+        sync: false # Prevent blueprint from overwriting your manual dashboard changes
 
   # Frontend React/Vite Service
   - type: web
