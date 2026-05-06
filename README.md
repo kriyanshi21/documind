@@ -1,6 +1,10 @@
 # DocuMind
 
-DocuMind is a Retrieval-Augmented Generation (RAG) application that allows you to upload various types of documents and chat with them using Google's Gemini models.
+## About
+**DocuMind** is a full-stack, Retrieval-Augmented Generation (RAG) application that allows you to seamlessly upload various document types (PDFs, Images, Spreadsheets, etc.) and chat with them using Google's powerful Gemini models. 
+
+## Live Demo
+🚀 **Try it live here:** [https://documind-frontend-t1fi.onrender.com](https://documind-frontend-t1fi.onrender.com)
 
 ## Features
 
