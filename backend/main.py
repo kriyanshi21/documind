@@ -391,8 +391,11 @@ def get_vectorstore() -> Chroma:
 
 
 def ingest_text_into_chroma(extracted_text: str, source_name: str) -> None:
-    if CHROMA_DIR.exists():
-        shutil.rmtree(CHROMA_DIR)
+    try:
+        vectorstore = get_vectorstore()
+        vectorstore.delete_collection()
+    except Exception:
+        pass
 
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=CHUNK_SIZE,
