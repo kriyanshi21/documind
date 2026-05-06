@@ -1,0 +1,27 @@
+services:
+  # Backend FastAPI Service
+  - type: web
+    name: documind-backend
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false # Set this in the Render Dashboard after creation
+      - key: CORS_ORIGINS
+        value: "https://documind-frontend.onrender.com" # Placeholder, update this if your frontend URL changes
+
+  # Frontend React/Vite Service
+  - type: web
+    name: documind-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: documind-backend
+          envVarKey: RENDER_EXTERNAL_URL
