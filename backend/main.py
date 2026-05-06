@@ -505,7 +505,9 @@ async def chat_with_pdf(payload: ChatRequest) -> ChatResponse:
 
     prompt = (
         "You are a document QA assistant. Use only the provided context to answer. "
-        "If the answer is not present in the context, explicitly say you could not find it.\n\n"
+        "If the answer is not present in the context, explicitly say you could not find it.\n"
+        "CRITICAL: Do NOT use any markdown formatting. Do not use asterisks (*), bold text, or markdown lists. "
+        "Format your response strictly as clean, plain text paragraphs.\n\n"
         f"Context:\n{context}\n\n"
         f"Question: {payload.question}"
     )
