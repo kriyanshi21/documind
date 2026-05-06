@@ -6,6 +6,7 @@ import logging
 import os
 import re
 import shutil
+import tempfile
 import zipfile
 from pathlib import Path
 from typing import Final
@@ -52,7 +53,7 @@ EMBEDDING_MODEL: Final[str] = "models/embedding-001"
 EMBEDDING_MODEL_FALLBACK: Final[str] = "models/text-embedding-004"
 MAX_CONTEXT_CHARS: Final[int] = 50_000
 
-CHROMA_DIR: Final[Path] = Path(__file__).resolve().parent / "chroma_db"
+CHROMA_DIR: Final[Path] = Path(tempfile.gettempdir()) / "documind_chroma_db"
 COLLECTION_NAME: Final[str] = "documind_chunks"
 
 CHUNK_SIZE: Final[int] = 1000
